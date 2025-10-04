@@ -7,7 +7,7 @@
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar EmailJS
-    emailjs.init('YOUR_PUBLIC_KEY_HERE'); // Substitua pela sua chave pública do EmailJS
+    emailjs.init('xShvTWW8hSTEUTfq9'); // Substitua pela sua chave pública do EmailJS
     
     // Inicializar todas as funcionalidades
     initNavigation();
@@ -118,8 +118,8 @@ function initContactForm() {
             try {
                 // Enviar email usando EmailJS
                 const response = await emailjs.send(
-                    'service_xxxxxxxxx', // Substitua pelo seu Service ID
-                    'template_xxxxxxxxx', // Substitua pelo seu Template ID
+                    'service_d0oceef', // Substitua pelo seu Service ID
+                    'template_kpm9d3p', // Substitua pelo seu Template ID
                     data
                 );
                 
@@ -421,4 +421,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 console.log('🚀 Portfolio carregado com sucesso!');
 console.log('👨‍💻 Desenvolvido por Claudio Sousa');
+
 console.log('📧 claudiolmsousa@gmail.com');
