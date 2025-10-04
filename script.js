@@ -397,29 +397,42 @@ function animateCounter(element, target, duration = 2000) {
 // ========================================
 // 🎯 INICIALIZAÇÃO DE CONTADORES
 // ========================================
-document.addEventListener('DOMContentLoaded', () => {
+const animateCounters = () => {
     const counters = document.querySelectorAll('.stat h3');
-    
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
                 
-                if (!isNaN(target)) {
-                    animateCounter(counter, target);
-                    observer.unobserve(counter);
-                }
+                // Determina o sufixo baseado no índice do contador
+                const suffix = index < 2 ? '+' : '%';
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + suffix;
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                updateCounter();
+                observer.unobserve(counter);
             }
         });
     }, { threshold: 0.5 });
-    
+
     counters.forEach(counter => {
         observer.observe(counter);
     });
-});
+};
 
 console.log('🚀 Portfolio carregado com sucesso!');
 console.log('👨‍💻 Desenvolvido por Claudio Sousa');
 
 console.log('📧 claudiolmsousa@gmail.com');
+
