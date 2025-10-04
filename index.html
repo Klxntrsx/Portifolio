@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles-modern.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -267,24 +269,29 @@
                     </div>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/claudio-sousa21/" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Klxntrsx" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/klx._.xx/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form id="contact-form" class="contact-form">
                     <div class="form-group">
-                        <input type="text" placeholder="Seu Nome" required>
+                        <input type="text" id="from_name" name="from_name" placeholder="Seu Nome" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Seu Email" required>
+                        <input type="email" id="from_email" name="from_email" placeholder="Seu Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Assunto" required>
+                        <input type="text" id="subject" name="subject" placeholder="Assunto" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                        <textarea id="message" name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">
+                        <span class="btn-text">Enviar Mensagem</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Enviando...
+                        </span>
+                    </button>
                 </form>
             </div>
         </div>
